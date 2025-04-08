@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Foodie</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 min-h-screen flex items-center justify-center text-white">
+  <div class="bg-white text-black p-6 rounded-xl shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Register</h2>
+    <form id="registerForm">
+      <input type="text" name="username" placeholder="Username" class="w-full p-2 mb-4 border rounded" required>
+      <input type="password" name="password" placeholder="Password" class="w-full p-2 mb-4 border rounded" required>
+      <button class="bg-teal-600 text-white px-4 py-2 rounded w-full">Register</button>
+    </form>
+    <p class="text-center mt-4">Already have an account? <a href="login.html" class="text-teal-700 font-semibold">Login</a></p>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").onsubmit = async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+      const data = await res.json();
+      alert(data.message);
+      if (res.ok) window.location.href = '/login.html';
+    };
+  </script>
+</body>
+</html>

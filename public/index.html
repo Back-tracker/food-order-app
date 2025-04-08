@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🍽️ Food Ordering</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-tr from-red-400 via-pink-500 to-yellow-400 min-h-screen text-white">
+
+  <div class="flex justify-between p-6 items-center">
+    <h1 class="text-3xl font-bold">Foodie</h1>
+    <div>
+      <a href="login.html" class="px-4 py-2 bg-white text-pink-600 font-bold rounded hover:bg-gray-100">Login</a>
+      <a href="register.html" class="px-4 py-2 ml-2 bg-white text-pink-600 font-bold rounded hover:bg-gray-100">Register</a>
+    </div>
+  </div>
+
+  <main class="p-6">
+    <h2 class="text-2xl font-semibold mb-4">Our Menu</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="menu-items"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
